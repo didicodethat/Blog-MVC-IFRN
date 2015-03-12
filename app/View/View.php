@@ -1,5 +1,8 @@
 <?php
-require normalizePath(BASE_PATH.'/app/Config/')
 class View{
-
+    public $layout = 'default.php';
+    public $view = '';
+    public function render(){
+        include normalizePath('layouts/'.$this->layout);
+    }
 }

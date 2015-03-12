@@ -14,6 +14,7 @@ class Router{
 
     public static function openController($Controller = '', $action = 'index', $args = array()){
         $controllerPath = normalizePath(BASE_PATH.'/app/Controller/'.$Controller.'.php');
+        $action = $action? $action : 'index';
         if(file_exists($controllerPath)){
             require $controllerPath;
             $controller = new $Controller();

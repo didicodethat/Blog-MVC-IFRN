@@ -9,10 +9,10 @@ class Request{
     }
 
     public static function normalizedPageRequest(){
-        $args = self::get('p', FILTER_SANITIZE_URL);
+        $args = explode('/', self::get('p', FILTER_SANITIZE_URL));
         return array(
             'controller' => $args[0],
-            'action' => $args[1],
+            'action' => array_key_exists(1,$args)? $args[1] : 'index',
             'args' => array_slice($args,2)
         );
     }
